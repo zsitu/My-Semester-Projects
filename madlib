@@ -1,0 +1,19 @@
+#Start
+print("Welcome to MadLibs!")
+print("Before we generate your story, please fill out the answers.")
+
+#Code
+def create_story():
+    story = f"There was once a human called (name). They traveled all cross the regions and wonderful kingdoms to find the treasure they most desperately wanted which is (object). One day they stumbled across a magical (animal). They start to ask the talking (animal) where was te hidden treasure. It replies Keep on wishin on what you desire and you will see it. (character_name) starts wishin upon a (adjective) star. And sure enough, they had finally found what they desired."
+    return
+print("""
+        1.character_name
+        2.object
+        3.animal
+        4.adjective""")
+name = input("Please enter your character's name: ")
+object = input("Please enter any objet: ")
+animal = input("Please enter any animal: ")
+adjective = input("Please enter an adjective: ")
+
+create_story()
