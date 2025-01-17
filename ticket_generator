@@ -1,0 +1,74 @@
+#Initialize
+import turtle
+t = turtle.Turtle()
+
+#Functions
+
+#Draws an admission ticket with a label and customer information inside. This function uses a turtle to draw a ticket with the name of the customer and the price paid for the ticket.
+#(string: name) represents the customers name that appears inside the ticket
+#(integer: price) represents the price the customer paid that appears inside the ticket
+#(string: dayofweek) represents the day of the week that the ticket was purchased
+#(integer: y_location) y_location represents the vertical loction of the ticket
+def draw_ticket(name, price, day, y_location):
+    t.goto(-50, y_location)
+    t.write("Ticket", font=("Arial", 15), align="right")
+    t.pendown()
+    for i in range(2):
+        t.forward(500)
+        t.left(90)
+        t.forward(250)
+        t.left(90)
+    t.penup()
+    t.goto(100, y_location +215)
+    t.write("Admit One", font=("Arial", 20), align="right")
+    t.goto(440, y_location +215)
+    t.write(day, font=("Arial", 20), align="right")
+    t.goto(225, y_location +135)
+    t.write(name, font=("Arial", 20), align="right")
+    t.goto(225, y_location +15)
+    t.write(price, font=("Arial", 20), align="right")
+
+#Main
+#1. Introduction (Welcome to the water park and aquirium ticket generator)
+print("Welcome to the Water Park and Aquarium Ticket Generator!")
+print("Before we generate your ticket, please fill out some basic information.")
+#2. Name
+#Age
+#Day of week
+#Coupon code
+
+print("""
+        1.name
+        2.age
+        3.day_of_week
+        4.coupon_code""")
+
+name = input("Please enter your name: ")
+age = int(input("Please enter your age: "))
+day = input("Please enter the day of the week: ")
+coupon_code = input("Enter a coupon_code if you have one, if not, enter NONE: ")
+    
+#draw_ticket(Rachel, 50, Wednesday, 40)
+#3. Algorithium for setting the price goes here
+if age <=3:
+        price = 0
+elif age>= 4 and age <=17 and day == "monday" or day == "tuesday" or day== "wednesday" or day== "thursday" or day== "friday":
+        price = 50
+elif age>= 4 and  age <=17 and day == "saturday" or day== "sunday":
+        price = 100
+elif age >= 18:
+        price = 100
+
+if coupon_code == "FREEFRIDAY" and age>= 4 and  age <=17 and day == "friday":
+        price = 0
+elif coupon_code == "SUNDAY10" and age>= 4 and  age <=17 and day == "sunday":
+        price = 40
+elif coupon_code == "NONE" and age>= 4 and age <=17 and day == "monday" or day == "tuesday" or day== "wednesday" or day== "thursday" or day== "friday":
+    price = 50
+elif coupon_code == "NONE" and age>= 4 and  age <=17 and day == "saturday" or day== "sunday":
+        price = 100
+elif coupon_code == "NONE" and age >= 18:
+        price = 100
+#4. Generate ticket
+    
+draw_ticket(name, price, day, 0)
